@@ -1,40 +1,8 @@
 <?php 
 session_start();
 include_once("config/conn.php");
-// include_once("config/check_user.php
-// if(isset($_POST['submit']) {
-// $uname = $_POST['uname'];
-// $password =trim($_POST['pswd']);
+include_once("config/check_user.php
 
-
-//   try {
-//     $query = "SELECT * FROM staff_tbl WHERE username = :uname AND password = :pswd";
-//     $bind = $pdo->prepare($query);
-//     $bind->bindParam(':uname', $uname, PDO::PARAM_STR);
-//     $bind->bindParam(':password', $password, PDO::PARAM_STR);
-   
-//     $bind->execute();     
-//     $stmt = $bind->fetchAll();
-//     if(count($stmt) > 0){
-//            $_SESSION['uname']=$uname = $stmt[0]['uname']; 
-//           // $_SESSION['fname']=$uname = $stmt[0]['fname'];
-//           // $_SESSION['lname']=$uname = $stmt[0]['lname'];
-//           $_SESSION['access_level']=$access = $stmt[0]['access_level'];
-
-
-
-//     }
-//     $count = $bind->rowcount();
-
-//    header("location:Dashboard.php");
-
-      
-// } catch (PDOException $e) {
-//   echo "Error : ".$e->getMessage();
-//   }
-
-//  }
-//$message ="";
 if(isset($_POST['submit'])) {
  
   $user = $_POST['username'];
@@ -88,7 +56,7 @@ if(isset($_POST['submit'])) {
         /* background-image:url(images/parking2.jpg); */
         background-repeat: no-repeat;
         background-size: cover;
-        width:100%;
+        width:80%;
         height: 100vh;
     }
     .form-container{
