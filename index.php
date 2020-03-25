@@ -34,7 +34,7 @@ include_once("config/conn.php");
 //   }
 
 //  }
-$message ="";
+//$message ="";
 if(isset($_POST['submit'])) {
  
   $user = $_POST['username'];
@@ -55,7 +55,10 @@ if(isset($_POST['submit'])) {
    // echo $user; exit;
     header('location:Dashboard.php');
   } else {
-    $message = '<div class = "alert alert-danger">Username/Password is wrong</div>';
+      
+
+
+    $message = 'Username/Password is wrong';
   }
   
   
@@ -108,11 +111,11 @@ if(isset($_POST['submit'])) {
          <div class="col-md-4 col-xs-12"></div>
          <div class="col-md-4 col-xs-12">
            <form action=""  method="POST"  class="form-container bg-light">
-            
-      
-                 '<<?php echo $message; ?>
-              
-            
+           <?php
+              if(isset($message)){
+                  echo '<div class="alert alert-danger">'.$message.'</div>'; 
+                }
+                ?>
               <h2 class="text-muted text-center">Login</h2>
              <div class="form-group">
                 <label for="phone"><b> Phone number:</b></label>
