@@ -128,12 +128,7 @@ if(isset($_POST['submit'])) {
              <div class="form-group">
                <button type="submit" class="btn btn-primary btn-block" name="submit">login</button>
              </div>
-             <div class="form-group">
-              <span class="text-center text-primary"><a href="forgotpass.php"><b>Forgot password?</b></a></span>
-             </div>
-             <div class="form-group">
-             <span class="text-center"><b>Are you new to the site?</b> <a href="signup.php"><b>register</b></a></span>
-             </div>
+            
            </form>
          </div>
          <div class="col-md-4 col-xs-12"></div>
