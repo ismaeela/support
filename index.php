@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include_once("config/conn.php");
-include_once("config/check_user.php
+include_once("config/check_user.php");
 
 if(isset($_POST['submit'])) {
  
