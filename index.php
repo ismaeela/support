@@ -47,8 +47,10 @@ if(isset($_POST['submit'])) {
   username=? AND password=? ");
   $query->execute(array($user,$pass));
   $row = $query->fetch(PDO::FETCH_BOTH);
+  $access_level = $row['access_level'];
   
   if($query->rowCount() > 0) {
+    $_SESSION['access_level'] = $access_level;
     $_SESSION['username'] = $user;
    // echo $user; exit;
     header('location:Dashboard.php');
