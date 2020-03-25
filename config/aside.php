@@ -40,21 +40,16 @@
                 
                 
                 
-            // }else{
-            //   echo '<li class="sub-menu">
-            //           <a href="javascript:;"><i class="fa fa-car"></i><span>Booking</span></a>
-            //             <ul class="sub">
-            //               <li><a href="#reserve_space" data-toggle="tab">Reserve Space</a></li>
-            //               <li><a href="#update_book" data-toggle="tab">Update Booking</a></li>
-                          
-            //             </ul>
-            //         </li>';
-            //   echo '<li class="sub-menu">
-            //           <a href="javascript:;"><i class="fa fa-lock"></i><span>Change password</span></a>
-            //             <ul class="sub">
-            //               <li><a href="#changepassword" data-toggle="tab">Change password</a></li>
-            //             </ul>
-            //         </li>';
+            }elseif($_SESSION['access_level']=='3'){
+              echo '<li class="sub-menu">                   
+                      
+                        <li><a href="#send_issues" data-toggle="tab">Send Issues</a></li>
+                      
+                    </li>';
+                    echo '<li class="sub-menu">                     
+                    <li><a href="#view_aissues" data-toggle="tab">View Issues</a></li>                                            
+                  
+                </li>';
 
 
             }
