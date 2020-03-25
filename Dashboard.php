@@ -369,7 +369,7 @@
                                   <div class="col-lg-4">
                                    <div class="form-group">
                                       <label><b>Issue desription:</b></label>
-                                      <input type="text" name ="description" class="form-control">
+                                      <input type="text" name = "description" class="form-control">
                                   </div>
                                   </div>    
                                   <div class="col-lg-4">

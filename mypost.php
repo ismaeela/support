@@ -6,7 +6,7 @@
         }
         $obj = new mains_methods();
     
-        if(isset($_POST['client_id'])){
+        if(isset($_POST['send_issues'])){
                 $client_id      =   $_POST['issue_desc'];
                 $channel_id     =   $_POST['channel_id'];
                 $subject        =   $_POST['subject'];
