@@ -15,41 +15,34 @@
             if($_SESSION['access_level']=='1' ) {
               echo '<li class="sub-menu">                   
                       
-                        <li><a href="#send_issues" data-toggle="tab">Send Issues</a></li>
+                        <li><a  id = "send_issue" href="#" data-toggle="tab">Send Issues</a></li>
                       
                     </li>';
            
               echo '<li class="sub-menu">                     
-                        <li><a href="#view_aissues" data-toggle="tab">View Issues</a></li>                                            
+                        <li><a id = "view_issue" href="#" data-toggle="tab">View Issues</a></li>                                            
                       
                     </li>';
                     echo '<li class="sub-menu">                     
-                <li><a href="#treat" data-toggle="tab">Treat And Reply issues</a></li>                                            
+                <li><a id = "treated_issue" href="#" data-toggle="tab">Treat And Reply issues</a></li>                                            
               
             </li>';
                     echo '<li class="sub-menu">                     
-                    <li><a href="#assign_issues" data-toggle="tab">Assign Duties</a></li> 
+                    <li><a id = "assign_issue" href="#" data-toggle="tab">Assign Duties</a></li> 
                                                                
                   
                 </li>';
                 echo '<li class="sub-menu">                     
-                    <li><a href="#changepasswd" data-toggle="tab">Change password</a></li> 
+                    <li><a id = "change_password" href="#" data-toggle="tab">Change password</a></li> 
                                                                
                   
                 </li>';
+
                 
                 
                 
-            }elseif($_SESSION['access_level']=='3'){
-              echo '<li class="sub-menu">                   
-                      
-                        <li><a href="#send_issues" data-toggle="tab">Send Issues</a></li>
-                      
-                    </li>';
-                    echo '<li class="sub-menu">                     
-                    <li><a href="#view_aissues" data-toggle="tab">View Issues</a></li>                                            
-                  
-                </li>';
+            }else{
+              
 
 
             }

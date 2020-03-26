@@ -6,9 +6,9 @@
         }
         $obj = new mains_methods();
     
-        if(isset($_POST['send_issues'])){
-                $client_id      =   $_POST['issue_desc'];
-                $channel_id     =   $_POST['channel_id'];
+        if(isset($_POST['send_issue'])){
+                $client_id      =   $_POST['client_id'];
+                $channel_id     =   $_POST['tic_chanel'];
                 $subject        =   $_POST['subject'];
                 $sender_id      =   $_POST['sender_id'];
                 $tic_date       =   $_POST['tic_date'];

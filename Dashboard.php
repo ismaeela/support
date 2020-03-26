@@ -71,10 +71,8 @@
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
-  <?php include 'config/aside.php'; ?>
-         
-        
-        <!-- sidebar menu end-->
+      <?php include 'config/aside.php'; ?>
+     <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
@@ -84,7 +82,8 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <form>
+      
+      <form action="mypost.php"  method="POST" id="send_issue"  onsubmit="return add_ticket();">
         <div class="row">
           <div class="col-md-12">
           <div class="tab-content">
@@ -98,303 +97,24 @@
                                   <hr>
                            </div>
                      </div> 
-                    
-                     <div class="tab-pane" id="assign_issues">          
-                     <div class="panel" style="padding-left: 25px; padding-right: 25px;margin-top:10px; border-radius: 10px; box-shadow: 0px 2px 17px 0px #aaaaaa;">
-                           <div class="panel-header"></div>
-                               <div class="panel panel-body">  
-                                 <form method="POST" >      
-                                 <h3 class="panel-heading text-danger"><b> <?php// echo $_SESSION['uname']; ?>  Assign Duties</b> </h3>
-                                 <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Client's Name:</b></label>
-                                      <!-- //<input type="text" name ="C_name" class="form-control"> -->
-                                      <select class="form-control" name = "client's_name">
-                                        <option></option>
-                                      </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                     <div class="form-group">
-                                      <label><b>Subject:</b></label>
-                                      <input type="text" name ="C_chanel" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Sender ID:</b></label>
-                                      <input type="text" name ="sender_id" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Date:</b></label>
-                                      <input type="date" name ="tic_date" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Time:</b></label>
-                                      <input type="time" name ="tic_time" class="form-control">
-                                  </div>
-                                     </div>          
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Issue desription:</b></label>
-                                      <input type="text" name ="desription" class="form-control">
-                                  </div>
-                                  </div>    
+                  
+                     <div id="test-content"></div> 
+                     </form>
+                        
                                 
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>assign to:</b></label>
-                                      <!-- <input type="text" name ="issue_desc" class="form-control"> -->
-                                      <select name="assign_to" class="form-control">
-                                      <option>[--Select Staff--]</option>
-                                      <?php
-                                     $selClient      =   $obj->staff_drop_down();
-                                     while($fetch        =   $selClient->fetch()){
-                                        $id             =   $fetch['id']; 
-                                        $name           =   $fetch['name']; 
-                                        echo "<option value='$id'>$name</option>";
-                                          }
-                                     ?>
-                                     </select>
-                                  </div>
-                                  </div>   
-                                    <div class="col-lg-2">
-                                   <div class="form-group">
-                                      <label><b>Expected Date:</b></label>
-                                      <input type="date" name ="issue_desc" class="form-control">
-                                  </div>
-                                  </div>      
-                                  <div class="col-lg-2">
-                                   <div class="form-group">
-                                      <label><b>expected time:</b></label>
-                                      <input type="time" name ="exp_time" class="form-control">
-                                  </div>
-                                  </div>    
-                                  <div class="col-lg-4">
-                                   <div class="form-group">                                      
-                                      <input type="submit" class="btn btn-success" name ="assign" value="assign" style="margin-top:23px">
-                                  </div>
-                                  </div>
-                               </div>
-                               
-                           </div>
-                     </div> 
+                          
                                       
-                     <div class="tab-pane" id="changepasswd">          
-                     <div class="panel" style="padding-left: 25px; padding-right: 25px;margin-top:10px; border-radius: 10px; box-shadow: 0px 2px 17px 0px #aaaaaa;">
-                           <div class="panel-header"></div>
-                               <div class="panel panel-body">        
-                                 <h3 class="panel-heading text-danger"><b> <?php// echo $_SESSION['uname']; ?>  Change Password</b></h3>
-                                 <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Old Password</b></label>
-                                      <input type="password" name ="oldpswwd" class="form-control" placeholder="Old Password">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                     <div class="form-group">
-                                      <label><b>New Password</b></label>
-                                      <input type="password" name ="Npswd" class="form-control" placeholder="New Password">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Comfirm Password:</b></label>
-                                      <input type="text" name ="S_id" class="form-control" placeholder="Comfirm Password">
-                                  </div>
-                                  </div>
-                                                
-                                
-                                    
-                                  <div class="col-lg-4">
-                                   <div class="form-group">                                      
-                                      <input type="submit" class="btn btn-success" name ="upswd" value="update" style="margin-top:23px">
-                                  </div>
-                                  </div>
-                               </div>
-                               
-                           </div>
-                     </div> 
+                     
                      
                      
               
-                     <div class="tab-pane" id="treat">          
-                     <div class="panel" style="padding-left: 25px; padding-right: 25px;margin-top:10px; border-radius: 10px; box-shadow: 0px 2px 17px 0px #aaaaaa;">
-                           <!-- <div class="panel-header"></div> -->
-                               <div class="panel panel-body">        
-                                 <h3 class="panel-heading text-danger"><b> View Issues</b> </h3>
-                                 <section id="unseen">
-                                 <table class="table table-bordered table-striped table-condensed">
-                  <thead>
-                    <tr>
-                      <th>S/N</th>
-                      <th>Client's Nmae</th>
-                      <th class="numeric">Sender ID</th>
-                      <th class="numeric">Issue DESCription</th>
-                      <th class="numeric">Subject</th>
-                      <th class="numeric">Communication chanel</th>
-                      <th class="numeric">Date</th>
-                      <th class="numeric">Time</th>                  
-                      <th class="numeric">Expected date</th>
-                      <th class="numeric">Expected time</th>
-                      <th class="numeric">Reply</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                    </tr>
-                                  </table>
-          </section>
-                               </div>                
-                               
-                           </div>
-                     </div>
-                     <div class="tab-pane" id="view_aissues">          
-                     <div class="panel" style="padding-left: 25px; padding-right: 25px;margin-top:10px; border-radius: 10px; box-shadow: 0px 2px 17px 0px #aaaaaa;">
-                           <!-- <div class="panel-header"></div> -->
-                               <div class="panel panel-body">        
-                                 <h3 class="panel-heading text-danger"><b> View Issues</b> </h3>
-                                 <section id="unseen">
-                                 <table class="table table-bordered table-striped table-condensed">
-                  <thead>
-                    <tr>
-                      <th>S/N</th>
-                      <th>Client's Nmae</th>
-                      <th class="numeric">Sender ID</th>
-                      <th class="numeric">Issue Description</th>
-                      <th class="numeric">Subject</th>
-                      <th class="numeric">Communication chanel</th>
-                      <th class="numeric">Date</th>
-                      <th class="numeric">Time</th>
-                      <th class="numeric">Assign TO</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                      <td class="numeric"></td>
-                    </tr>
-                                  </table>
-                   </section>
-                               </div>                
-                               
-                           </div>
-                     </div> 
+                     
+                    
                    
-                     <div class="tab-pane" id="send_issues">          
-                     <div class="panel" style="padding-left: 25px; padding-right: 25px;margin-top:10px; border-radius: 10px; box-shadow: 0px 2px 17px 0px #aaaaaa;">
-                           <div class="panel-header"></div>
-                               <div class="panel panel-body">        
-                                 <h3 class="panel-heading text-danger"><b> <?php// echo $_SESSION['uname']; ?>  Send Issues Here</b> </h3>
-                                 <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Client's Name:</b></label>
-                                      <select class="form-control" name="client_id">
-                                   <option>--Select Client's name--</option>
-                                   <?php
-                                     $selClient      =   $obj->client_drop_down();
-                                     while($fetch        =   $selClient->fetch()){
-                                        $id             =   $fetch['id']; 
-                                        $name           =   $fetch['name']; 
-                                        echo "<option value='$id'>$name</option>";
-                                    }
-                                   ?>
-                                      </select>
-                
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                     <div class="form-group">
-                                      <label><b>Subject:</b></label>
-                                      <input type="text" name ="subject" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">    
-                                   <div class="form-group">
-                                      <label><b>Chanel:</b></label>
-                                      <!-- <input type="text" name ="sender_id" class="form-control"> -->
-                                      <select class = "form-control" name="tic_chanel">
-                                      <?php
-                                     $selClient      =   $obj->comm_chenal_drop_down();
-                                     while($fetch        =   $selClient->fetch()){
-                                        $com_id             =   $fetch['com_id']; 
-                                        $com_name           =   $fetch['com_name']; 
-                                        echo "<option value='$com_id'>$com_name </option>";
-                                    }
-                                   ?>                                        
-                                      </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Sender ID:</b></label>
-                                      <input type="text" name ="sender_id" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                   <div class="form-group">
-                                      <label><b>Date:</b></label>
-                                      <input type="date" name ="tic_date" class="form-control">
-                                  </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                   <div class="form-group">
-                                      <label><b>Time:</b></label>
-                                      <input type="time" name ="tic_time" class="form-control">
-                                  </div>
-                                     </div>          
-                                  <div class="col-lg-4">
-                                   <div class="form-group">
-                                      <label><b>Issue desription:</b></label>
-                                      <input type="text" name = "description" class="form-control">
-                                  </div>
-                                  </div>    
-                                  <div class="col-lg-4">
-                                   <div class="form-group">                                      
-                                      <input type="submit" onclick="add_ticket()"  class="btn btn-success" name ="send_issues">
-                                  </div>
-                                  </div>
-                                   <hr>
-                               </div>
-                              
-                                  
-                               </div>
-                                   
-                                
-                                
-                              
-                                 
-                           </div>
-                     </div> 
+                     
           
         
-                     
-                </div>
-              </div> 
-            </div>
+                
            </div>
          </div>
         </div>
@@ -462,6 +182,7 @@
     //   return false;
     // });
   </script>
+
   <script type="application/javascript">
     $(document).ready(function() {
       $("#date-popover").popover({

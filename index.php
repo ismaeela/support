@@ -1,40 +1,31 @@
 <?php 
 session_start();
 include_once("config/conn.php");
-//include_once("config/check_user.php");
 
 if(isset($_POST['submit'])) {
  
-  $user = $_POST['username'];
-  $pass = $_POST['password'];
-  
-  if(empty($user) || empty($pass)) {
-  $message = 'All field are required';
-  } else {
-  $query = $pdo->prepare("SELECT * FROM staff_tbl WHERE 
-  username=? AND password=? ");
-  $query->execute(array($user,$pass));
-  $row = $query->fetch(PDO::FETCH_BOTH);
-  $access_level = $row['access_level'];
-  
-  if($query->rowCount() > 0) {
-    $_SESSION['access_level'] = $access_level;
-    $_SESSION['username'] = $user;
-   // echo $user; exit;
-    header('location:Dashboard.php');
-  } else {
-      
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-
-    $message = 'Username/Password is wrong';
-  }
+    if(empty($user) || empty($pass)) {
+    $message = 'All field are required';
+    } else {
+      $query = $pdo->prepare("SELECT * FROM staff_tbl WHERE 
+      username=? AND password=? ");
+      $query->execute(array($user,$pass));
+      $row = $query->fetch(PDO::FETCH_BOTH);
+      $access_level = $row['access_level'];
   
+      if($query->rowCount() > 0) {
+        $_SESSION['access_level'] = $access_level;
+        $_SESSION['username'] = $user;
+        header('location:Dashboard.php');
+      } else {
+        $message = 'Username/Password is wrong';
+      }
+    }
   
   }
-  
-  }
-
-
 	?>
 
 
@@ -51,12 +42,12 @@ if(isset($_POST['submit'])) {
     <script src="font-awesome/fontawesome-all.min.js"></script>
     <script src ="bootstrap4/js/bootstrap.js"></script>
     <script src ="bootstrap4/js/jquery.min.js"></script>
-    <style>
+      <style>
     .bg{
         /* background-image:url(images/parking2.jpg); */
         background-repeat: no-repeat;
         background-size: cover;
-        width:80%;
+        width:100%;
         height: 100vh;
     }
     .form-container{
@@ -71,7 +62,7 @@ if(isset($_POST['submit'])) {
     
     }
    
-    </style>
+    </style> 
 </head>
 <body>
     <div class="container-fluid bg">

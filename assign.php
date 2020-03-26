@@ -1,13 +1,4 @@
-<?php
- session_start();
- include_once("my_code.php");
-include_once("config/conn.php");
- include_once("config/check_user.php");
-//  if(isset($_GET['id'])){
-//  $id = $_GET['id'];
-//  }
- //echo $_SESSION['phone'];
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 

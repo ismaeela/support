@@ -42,7 +42,7 @@
         
         
          public function add_ticket($client_id, $channel_id, $subject, $sender_id, $tic_date, $tic_time, $description){
-                $sql        =   "INSERT INTO tickes(tic_client_id, tic_chanel, tic_s    ubject, tic_sender_id, tic_date, tic_time, tic_desc) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $sql        =   "INSERT INTO tickes(tic_client_id, tic_chanel, tic_subject, tic_sender_id, tic_date, tic_time, tic_desc) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $s          =   $this->dbConn->prepare($sql);
                 $s          ->  bindParam(1, $client_id);
                 $s          ->  bindParam(2, $channel_id);
